@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- CALCULADORA -->
+    <div class="calculator">
+        <div class="display" id="display">0</div>
+
+        <div class="buttons">
+            <button class="btn op" data-action="clear">C</button>
+            <button class="btn op" data-action="percent">%</button>
+            <button class="btn op" data-action="divide">÷</button>
+            <button class="btn op" data-action="multiply">×</button>
+
+            <button class="btn" data-number="7">7</button>
+            <button class="btn" data-number="8">8</button>
+            <button class="btn" data-number="9">9</button>
+            <button class="btn op" data-action="subtract">−</button>
+
+            <button class="btn" data-number="4">4</button>
+            <button class="btn" data-number="5">5</button>
+            <button class="btn" data-number="6">6</button>
+            <button class="btn op" data-action="add">+</button>
+
+            <button class="btn" data-number="1">1</button>
+            <button class="btn" data-number="2">2</button>
+            <button class="btn" data-number="3">3</button>
+            <button class="btn" data-number=".">,</button>
+            <button class="btn zero" data-number="0">0</button>
+            <button class="btn equal" data-action="equal">=</button>
+        </div>
+    </div>
+
+    <!-- PAINEL 1 -->
+    <div class="panel">
+        <h2>Painel</h2>
+
+        <div class="info">
+
+            <p>
+                Tempo online: <span id="tempo_online">0</span>s
+                <span class="info-icon" data-text="
+Mostra há quantos segundos o servidor está rodando.
+
+Exemplo:
+Se aparecer 120, significa que o sistema está ligado há 2 minutos.">
+                ?
+                </span>
+            </p>
+
+            <p>
+                Total de acessos: <span id="total_acessos">0</span>
+                <span class="info-icon" data-text="
+Conta quantas vezes a página principal foi aberta.
+
+Exemplo:
+Se você atualizar a página 3 vezes,
+esse número vai aumentar.">
+                ?
+                </span>
+            </p>
+
+            <p>
+                Total de cálculos: <span id="total_calculos">0</span>
+                <span class="info-icon" data-text="
+Conta quantas contas foram realmente calculadas.
+
+Exemplo:
+Se você fizer 1+1 e depois 2+2,
+o total será 2.">
+                ?
+                </span>
+            </p>
+
+            <p>
+                Último tempo: <span id="ultimo_tempo">0</span>ms
+                <span class="info-icon" data-text="
+Mostra quanto tempo levou para calcular a última conta.
+
+Exemplo:
+Se aparecer 5ms,
+significa que demorou 5 milissegundos para processar.">
+                ?
+                </span>
+            </p>
+
+            <p>
+                Alerta: <span id="alerta">-</span>
+                <span class="info-icon" data-text="
+Mostra um aviso sobre o resultado.
+
+Exemplo:
+Se o número for negativo, ele avisa.
+Se for muito alto, também alerta.">
+                ?
+                </span>
+            </p>
+
+        </div>
+
+        <h3>Últimas contas</h3>
+        <ul id="auditoria"></ul>
+    </div>
+
+    <!-- PAINEL 2 -->
+    <div class="panel">
+        <h2>Análise</h2>
+
+        <div class="info">
+
+            <p>
+                Humor: <span id="humor">-</span>
+                <span class="info-icon" data-text="
+Muda conforme o uso.
+
+Poucas contas → Aquecendo.
+Muitas contas → Intenso.">
+                ?
+                </span>
+            </p>
+
+            <p>
+                Padrão: <span id="padrao">-</span>
+                <span class="info-icon" data-text="
+Detecta repetição ou uso excessivo de operadores iguais.
+
+Exemplo:
+5×5 seguido de 5×5 → repetição.">
+                ?
+                </span>
+            </p>
+
+            <p>
+                Maior resultado: <span id="maior_resultado">-</span>
+                <span class="info-icon" data-text="
+Maior número já calculado desde o início.">
+                ?
+                </span>
+            </p>
+
+            <p>
+                Menor resultado: <span id="menor_resultado">-</span>
+                <span class="info-icon" data-text="
+Menor número já calculado desde o início.">
+                ?
+                </span>
+            </p>
+
+            <p>
+                Conta mais longa: <span id="maior_expressao">-</span>
+                <span class="info-icon" data-text="
+A expressão com mais números e sinais digitados.">
+                ?
+                </span>
+            </p>
+
+        </div>
+    </div>
+
+</div>
+
+<div id="tooltip" class="tooltip-box"></div>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
